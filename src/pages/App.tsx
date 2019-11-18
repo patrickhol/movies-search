@@ -15,14 +15,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <>
       <header className="App-header">
-        <SearchInput />
+        <SearchInput
+          onSetMovieList={setMovieList}
+          movieList={movieList}
+          onFetchMovieList={fetchMovieList}
+        />
       </header>
-      <body>
+      <div>
         <MovieDetails />
-      </body>
-    </div>
+      </div>
+    </>
   );
 };
 

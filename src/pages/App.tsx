@@ -3,6 +3,7 @@ import React from "react";
 import "./App.scss";
 import "../styles/main.scss";
 import SearchInput from "../atoms/SearchInput";
+import MovieDetails from "../organisms/MovieDetails";
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,9 @@ const App: React.FC = () => {
       <header className="App-header">
         <SearchInput />
       </header>
+      <body>
+        <MovieDetails />
+      </body>
     </div>
   );
 };

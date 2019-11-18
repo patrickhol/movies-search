@@ -35,3 +35,13 @@
     cursor: pointer;
   }
 }
+
+.genre {
+  &__comma:empty {
+    display: none;
+  }
+
+  &__comma:not(:first-child):before {
+    content: ", ";
+  }
+}

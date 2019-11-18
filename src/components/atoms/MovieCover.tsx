@@ -1,9 +1,18 @@
 import React from "react";
+import MoviesInterface from "../../interfaces/MoviesInterface.interface";
 
-interface Props {}
+interface IProps {
+  movie?: MoviesInterface;
+}
 
-const MovieCover: React.FC<Props> = () => {
-  return <div>MovieCover</div>;
+const MovieCover = ({ movie }: IProps) => {
+  return (
+    <div>
+      {movie && movie.poster && (
+        <img src={movie.poster} alt={`cover ${movie.title}`} />
+      )}
+    </div>
+  );
 };
 
 export default MovieCover;

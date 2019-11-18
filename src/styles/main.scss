@@ -1,0 +1,33 @@
+.App-header {
+  box-sizing: border-box;
+  margin-left: 50px;
+  margin-right: 50px;
+  overflow: hidden;
+}
+
+.searchblock {
+  width: 100%;
+  margin: 10px;
+
+  &__icon {
+    padding: 10px;
+    min-width: 40px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    padding-left: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  i {
+    position: absolute;
+  }
+}

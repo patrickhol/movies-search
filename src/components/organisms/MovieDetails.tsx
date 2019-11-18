@@ -1,6 +1,6 @@
 import React from "react";
-import MovieCover from "../components/atoms/MovieCover";
-import MovieInfo from "../components/molecules/MovieInfo";
+import MovieCover from "../atoms/MovieCover";
+import MovieInfo from "../molecules/MovieInfo";
 
 interface Props {}
 

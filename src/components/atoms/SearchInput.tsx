@@ -1,28 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface Props {
   onFetchMovieList: (name: string) => void;
   movieList: any;
   onSetMovieList: Function;
+  onSetMovie: Function;
 }
 
 const SearchInput: React.FC<Props> = ({
   onFetchMovieList,
   movieList,
-  onSetMovieList
+  onSetMovieList,
+  onSetMovie
 }) => {
+  const [searchValue, setSearchValue] = useState("");
+  const handleOnClick = (item: any) => {
+    onSetMovie(item);
+    onSetMovieList("");
+    setSearchValue("");
+  };
+
+  const handleOnChange = (e: any) => {
+    setSearchValue(e.target.value);
+    if (e.target.value.length > 0) {
+      onFetchMovieList(e.target.value);
+    } else {
+      onSetMovieList("");
+    }
+  };
+
   return (
     <div className="search">
       <i className="search__icon fa fa-search icon"></i>
       <input
-        onChange={e => {
-          e.preventDefault();
-          if (e.currentTarget.value.length > 0) {
-            onFetchMovieList(e.currentTarget.value);
-          } else {
-            onSetMovieList("");
-          }
-        }}
+        value={searchValue}
+        onChange={handleOnChange}
         className="search__input"
         type="text"
         placeholder="Search Movie Title"
@@ -31,10 +43,11 @@ const SearchInput: React.FC<Props> = ({
       {movieList &&
         movieList.map((item: any) => (
           <p
-            onClick={() => {
-              console.log("render id:", item._id);
-            }}
+            className="search__p"
             key={item._id}
+            onClick={item => {
+              handleOnClick(item);
+            }}
           >
             {item.title}
           </p>

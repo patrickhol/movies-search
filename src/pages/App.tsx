@@ -8,8 +8,10 @@ import MoviesAPI from "../api/MoviesAPI";
 
 const App: React.FC = () => {
   const [movieList, setMovieList] = useState();
+  const [movie, setMovie] = useState();
 
   const fetchMovieList = async (name: string) => {
+    console.log(name);
     const newList = await MoviesAPI.getMoviesByTitle(name);
     setMovieList(newList);
   };
@@ -18,14 +20,19 @@ const App: React.FC = () => {
     <>
       <header className="App-header">
         <SearchInput
+          onSetMovie={setMovie}
           onSetMovieList={setMovieList}
           movieList={movieList}
           onFetchMovieList={fetchMovieList}
         />
       </header>
-      <div>
-        <MovieDetails />
-      </div>
+      {movie ? (
+        <div>
+          <MovieDetails />
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };

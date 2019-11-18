@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MoviesInterface from "../../interfaces/MoviesInterface.interface";
 
 interface Props {
   onFetchMovieList: (name: string) => void;
@@ -14,7 +15,7 @@ const SearchInput: React.FC<Props> = ({
   onSetMovie
 }) => {
   const [searchValue, setSearchValue] = useState("");
-  const handleOnClick = (item: any) => {
+  const handleOnClick = (item: MoviesInterface) => {
     onSetMovie(item);
     onSetMovieList("");
     setSearchValue("");
@@ -41,17 +42,17 @@ const SearchInput: React.FC<Props> = ({
         name="search"
       />
       {movieList &&
-        movieList.map((item: any) => (
-          <p
-            className="search__p"
-            key={item._id}
-            onClick={item => {
-              handleOnClick(item);
-            }}
-          >
-            {item.title}
-          </p>
-        ))}
+        movieList.map((item: MoviesInterface) => {
+          return (
+            <p
+              className="search__p"
+              key={item._id}
+              onClick={() => handleOnClick(item)}
+            >
+              {item.title}
+            </p>
+          );
+        })}
     </div>
   );
 };

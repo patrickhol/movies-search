@@ -5,13 +5,13 @@ import "../styles/main.scss";
 import SearchInput from "../components/atoms/SearchInput";
 import MovieDetails from "../components/organisms/MovieDetails";
 import MoviesAPI from "../api/MoviesAPI";
+import MoviesInterface from "../interfaces/MoviesInterface.interface";
 
-const App: React.FC = () => {
+const App = () => {
   const [movieList, setMovieList] = useState();
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState<MoviesInterface>();
 
   const fetchMovieList = async (name: string) => {
-    console.log(name);
     const newList = await MoviesAPI.getMoviesByTitle(name);
     setMovieList(newList);
   };
@@ -28,7 +28,7 @@ const App: React.FC = () => {
       </header>
       {movie ? (
         <div>
-          <MovieDetails />
+          <MovieDetails movie={movie} />
         </div>
       ) : (
         ""

@@ -8,8 +8,12 @@ const Genre: React.FC<Props> = ({ data }: Props) => {
   return (
     <div className="genre">
       {data &&
-        data.map(item => {
-          return <span className="genre__comma">{item}</span>;
+        data.map((item, index) => {
+          return (
+            <span key={index} className="genre__comma">
+              {item}
+            </span>
+          );
         })}
     </div>
   );

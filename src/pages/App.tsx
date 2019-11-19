@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./App.scss";
 import "../styles/main.scss";
-import SearchInput from "../components/atoms/SearchInput";
+import SearchInput from "../components/molecules/SearchInput";
 import MovieDetails from "../components/organisms/MovieDetails";
 import MoviesAPI from "../api/MoviesAPI";
 import MoviesInterface from "../interfaces/MoviesInterface.interface";
@@ -25,14 +25,14 @@ const App = () => {
           movieList={movieList}
           onFetchMovieList={fetchMovieList}
         />
+        {movie ? (
+          <div className="movie-details">
+            <MovieDetails movie={movie} />
+          </div>
+        ) : (
+          ""
+        )}
       </header>
-      {movie ? (
-        <div>
-          <MovieDetails movie={movie} />
-        </div>
-      ) : (
-        ""
-      )}
     </>
   );
 };

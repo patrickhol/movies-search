@@ -8,10 +8,14 @@ interface iProps {
 }
 
 const MovieDetails = ({ movie }: iProps) => (
-  <div>
-    <MovieCover movie={movie} />
-    <MovieInfo movie={movie} />
-  </div>
+  <>
+    <div className="cover">
+      <MovieCover movie={movie} />
+    </div>
+    <div className="info">
+      <MovieInfo movie={movie} />
+    </div>
+  </>
 );
 
 export default MovieDetails;

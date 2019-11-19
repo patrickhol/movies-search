@@ -1,39 +1,11 @@
+@import "./search";
+@import "./rating";
+
 .App-header {
   box-sizing: border-box;
   margin-left: 50px;
   margin-right: 50px;
   overflow: hidden;
-}
-
-.search {
-  width: 100%;
-  margin: 10px;
-
-  &__icon {
-    padding: 10px;
-    min-width: 40px;
-  }
-
-  &__input {
-    width: 100%;
-    padding: 10px;
-    text-align: left;
-    padding-left: 30px;
-    border: none;
-    border-bottom: 1px solid black;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  i {
-    position: absolute;
-  }
-
-  &__p {
-    cursor: pointer;
-  }
 }
 
 .genre {
@@ -44,4 +16,23 @@
   &__comma:not(:first-child):before {
     content: ", ";
   }
+}
+
+.cover {
+  margin: 10px;
+  float: left;
+  max-width: 30%;
+  &__img {
+    height: 430px;
+    max-width: 300px;
+  }
+}
+
+.info {
+  max-width: 70%;
+}
+
+.movie-details {
+  height: 460px;
+  border: 1px solid black;
 }

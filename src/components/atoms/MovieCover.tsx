@@ -9,7 +9,11 @@ const MovieCover = ({ movie }: IProps) => {
   return (
     <div>
       {movie && movie.poster && (
-        <img src={movie.poster} alt={`cover ${movie.title}`} />
+        <img
+          className="cover__img"
+          src={movie.poster}
+          alt={`cover ${movie.title}`}
+        />
       )}
     </div>
   );

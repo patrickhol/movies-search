@@ -1,7 +1,7 @@
 import React from "react";
 import Subtitle from "../atoms/Subtitle";
 import Genre from "../atoms/Genre";
-import Ratting from "../atoms/Ratting";
+import Rating from "./Rating";
 import Title from "../atoms/Title";
 import Summary from "../atoms/Summary";
 import MoviesInterface from "../../interfaces/MoviesInterface.interface";
@@ -10,7 +10,9 @@ import {
   SUMMARY,
   SUMMARY_NOT_AVAILABLE,
   GENRE,
-  GENRE_NOT_AVAILABLE
+  GENRE_NOT_AVAILABLE,
+  RATING,
+  RATING_NOT_AVAILABLE
 } from "../../constants/text.constants";
 
 interface IProps {
@@ -25,8 +27,11 @@ const MovieInfo = ({ movie }: IProps) => {
       <Summary description={movie ? movie.plot : SUMMARY_NOT_AVAILABLE} />
       <Subtitle name={GENRE} />
       <Genre data={movie ? movie.genres : [GENRE_NOT_AVAILABLE]} />
-      <Subtitle />
-      <Ratting />
+      <Subtitle name={RATING} />
+      <Rating
+        ratingData={movie ? movie.imdb.rating : RATING_NOT_AVAILABLE}
+        votes={movie ? movie.imdb.votes : RATING_NOT_AVAILABLE}
+      />
     </div>
   );
 };

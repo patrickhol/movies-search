@@ -1,0 +1,26 @@
+.rating__star {
+  font-size: x-large;
+  width: 30px;
+  display: inline-block;
+  color: gray;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:before {
+    content: "\2605";
+  }
+
+  &--full {
+    color: gold;
+  }
+  &--half::after {
+    content: "\2605";
+    color: gold;
+    position: absolute;
+    margin-left: -24px;
+    width: 12.5px;
+    overflow: hidden;
+  }
+}

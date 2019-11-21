@@ -10,21 +10,29 @@ import MoviesInterface from "../interfaces/MoviesInterface.interface";
 const App = () => {
   const [movieList, setMovieList] = useState();
   const [movie, setMovie] = useState<MoviesInterface>();
+  const [errorInfo, setErrorInfo] = useState("");
 
   const fetchMovieList = async (name: string) => {
-    const newList = await MoviesAPI.getMoviesByTitle(name);
-    setMovieList(newList);
+    try {
+      const newList = await MoviesAPI.getMoviesByTitle(name);
+      setErrorInfo("");
+      setMovieList(newList);
+    } catch (err) {
+      console.error({ err });
+      setErrorInfo(err.toString());
+    }
   };
 
   return (
     <>
-      <header className="App-header">
+      <header className="app">
         <SearchInput
           onSetMovie={setMovie}
           onSetMovieList={setMovieList}
           movieList={movieList}
           onFetchMovieList={fetchMovieList}
         />
+        <span className="app__error">{errorInfo}</span>
         {movie ? (
           <div className="movie-details">
             <MovieDetails movie={movie} />

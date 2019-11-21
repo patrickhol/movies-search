@@ -1,18 +1,28 @@
+# DEV
+
 ## Use mock data in dev mode
 
 First install globally json-server [JSON Server](https://github.com/typicode/json-server)
 
 ### `npm install -g json-server`
 
-Run JSON Server on port 4000
+Second install from the package.json all dependencies via npm or yarn [yarn installation guide](https://yarnpkg.com/lang/en/docs/install/)
 
-### `json-server --watch -p 4000 ./src/mock/db.json`
+### `npm i`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+or
 
-## Available Scripts
+### `yarn`
 
-In the project directory, you can run:
+Run JSON Server on port 5000
+
+### `json-server --watch -p 5000 ./src/mock/db.json`
+
+Runs the app in the development mode
+
+### `npm run start`
+
+or
 
 ### `yarn start`
 
@@ -22,10 +32,26 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+# PROD
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Docker
+
+Example usage, In the project directory.
+Build the docker image:
+
+### `docker build . -t movies-app`
+
+Check if image exist:
+
+### `docker ps`
+
+Run docker and server NGINX
+
+### `docker run -p 8000:80 movies-app`
+
+Go to web browser localhost:8000
+
+## Prod ready to be deployed
 
 ### `yarn build`
 

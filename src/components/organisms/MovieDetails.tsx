@@ -1,7 +1,7 @@
 import React from "react";
 import MovieCover from "../atoms/MovieCover";
 import MovieInfo from "../molecules/MovieInfo";
-import MoviesInterface from "../../interfaces/MoviesInterface.interface";
+import MoviesInterface from "../../interfaces/moviesInterface.interface";
 
 interface iProps {
   movie?: MoviesInterface;

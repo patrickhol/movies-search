@@ -1,5 +1,5 @@
 import React from "react";
-import MoviesInterface from "../../interfaces/MoviesInterface.interface";
+import MoviesInterface from "../../interfaces/moviesInterface.interface";
 import {
   DEFAULT_COVER,
   REGEXP_HTTP_FIND,
@@ -26,7 +26,11 @@ const MovieCover = ({ movie }: IProps) => {
           alt={`cover ${movie.title}`}
         />
       ) : (
-        <img className="cover__img" src={DEFAULT_COVER} alt={DEFAULT_IMAGE_ALT} />
+        <img
+          className="cover__img"
+          src={DEFAULT_COVER}
+          alt={DEFAULT_IMAGE_ALT}
+        />
       )}
     </div>
   );

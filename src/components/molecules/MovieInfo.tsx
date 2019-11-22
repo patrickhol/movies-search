@@ -4,7 +4,7 @@ import Genre from "../atoms/Genre";
 import Rating from "./Rating";
 import Title from "../atoms/Title";
 import Summary from "../atoms/Summary";
-import MoviesInterface from "../../interfaces/MoviesInterface.interface";
+import MoviesInterface from "../../interfaces/moviesInterface.interface";
 import {
   TITLE_NOT_AVAILABLE,
   SUMMARY,

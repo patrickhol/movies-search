@@ -1,18 +1,13 @@
-import React from "react";
-import MoviesInterface from "../../interfaces/moviesInterface.interface";
-import {
-  DEFAULT_COVER,
-  REGEXP_HTTP_FIND,
-  HTTPS,
-  DEFAULT_IMAGE_ALT
-} from "../../constants/global.constants";
-import { findAndReplace } from "../../utils/findAndReplace";
+import React from 'react';
+import MoviesInterface from '../../interfaces/moviesInterface.interface';
+import { DEFAULT_COVER, REGEXP_HTTP_FIND, HTTPS, DEFAULT_IMAGE_ALT } from '../../constants/global.constants';
+import { findAndReplace } from '../../utils/findAndReplace';
 
-interface IProps {
+interface MovieCoverProps {
   movie?: MoviesInterface;
 }
 
-const MovieCover = ({ movie }: IProps) => {
+const MovieCover = ({ movie }: MovieCoverProps) => {
   return (
     <div>
       {movie && movie.poster ? (
@@ -26,11 +21,7 @@ const MovieCover = ({ movie }: IProps) => {
           alt={`cover ${movie.title}`}
         />
       ) : (
-        <img
-          className="cover__img"
-          src={DEFAULT_COVER}
-          alt={DEFAULT_IMAGE_ALT}
-        />
+        <img className="cover__img" src={DEFAULT_COVER} alt={DEFAULT_IMAGE_ALT} />
       )}
     </div>
   );

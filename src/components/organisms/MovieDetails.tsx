@@ -1,13 +1,13 @@
-import React from "react";
-import MovieCover from "../atoms/MovieCover";
-import MovieInfo from "../molecules/MovieInfo";
-import MoviesInterface from "../../interfaces/moviesInterface.interface";
+import React from 'react';
+import MovieCover from '../atoms/MovieCover';
+import MovieInfo from '../molecules/MovieInfo';
+import MoviesInterface from '../../interfaces/moviesInterface.interface';
 
-interface iProps {
+interface MovieDetailsProps {
   movie?: MoviesInterface;
 }
 
-const MovieDetails = ({ movie }: iProps) => (
+const MovieDetails = ({ movie }: MovieDetailsProps) => (
   <>
     <div className="cover">
       <MovieCover movie={movie} />

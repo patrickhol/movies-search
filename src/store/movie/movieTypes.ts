@@ -1,8 +1,8 @@
-import moviesInterface from "../../interfaces/moviesInterface.interface";
+import moviesInterface from '../../interfaces/moviesInterface.interface';
 
-export const SET_MOVIE_LIST = "SET_MOVIE_LIST";
-export const SET_MOVIE = "SET_MOVIE";
-export const SET_ERROR = "SET_ERROR";
+export const SET_MOVIE_LIST = 'SET_MOVIE_LIST';
+export const SET_MOVIE = 'SET_MOVIE';
+export const SET_ERROR = 'SET_ERROR';
 
 export interface MovieState {
   movie?: moviesInterface;

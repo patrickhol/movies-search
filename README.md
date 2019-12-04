@@ -75,7 +75,7 @@ Run test watch mode
 
 ### `yarn test:once`
 
-Run test CI mode
+Run tests once
 
 ### `yarn test:ci`
 

@@ -20,14 +20,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:static-check": "npm-run-all --parallel check-types check-format lint build",
+    "build:static-test-check": "npm-run-all check-types check-format lint test:ci build",
     "test": "react-scripts test",
+    "test:ci": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "check-types": "tsc",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx)\"",
     "format": "npm run prettier -- --write",
-    "check-format": "npm run prettier -- --list-different"
+    "check-format": "npm run prettier -- --list-different",
+    "check:tsc-lint-test": "npm-run-all check-types lint test:ci"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,7 +1,7 @@
-import React from "react";
-import Star from "../atoms/Star";
+import React from 'react';
+import Star from '../atoms/Star';
 
-import { VOTES_MIN_LIMIT } from "../../constants/text.constants";
+import { VOTES_MIN_LIMIT } from '../../constants/text.constants';
 
 interface Props {
   ratingData: number | string;
@@ -16,11 +16,8 @@ const Rating: React.FC<Props> = ({ ratingData, votes }) => {
 
   const renderStars = () => {
     const STAR_NUMBER = 10;
-    let elements = [];
-    const theRemainder =
-      typeof ratingData === "number"
-        ? checkRatingRemainder(ratingData)
-        : undefined;
+    const elements = [];
+    const theRemainder = typeof ratingData === 'number' ? checkRatingRemainder(ratingData) : undefined;
     if (theRemainder) {
       for (let index = 1; index <= STAR_NUMBER; index++) {
         if (index <= ratingData) {
@@ -30,10 +27,7 @@ const Rating: React.FC<Props> = ({ ratingData, votes }) => {
         }
       }
       return <>{elements}</>;
-    } else if (
-      typeof theRemainder !== undefined &&
-      typeof ratingData === "number"
-    ) {
+    } else if (typeof theRemainder !== undefined && typeof ratingData === 'number') {
       const floorRatingData = Math.floor(ratingData);
       for (let index = 0; index < STAR_NUMBER; index++) {
         if (index < floorRatingData) {

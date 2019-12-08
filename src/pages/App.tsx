@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React from 'react';
 
-import "./App.scss";
-import "../styles/main.scss";
-import SearchInput from "../components/molecules/SearchInput";
-import MovieDetails from "../components/organisms/MovieDetails";
-import MoviesAPI from "../api/MoviesAPI";
-import MoviesInterface from "../interfaces/MoviesInterface.interface";
+import './App.scss';
+import '../styles/main.scss';
+import SearchInput from '../components/molecules/SearchInput';
+import MovieDetails from '../components/organisms/MovieDetails';
+import MoviesAPI from '../api/MoviesAPI';
+import { connect } from 'react-redux';
 
-const App = () => {
-  const [movieList, setMovieList] = useState();
-  const [movie, setMovie] = useState<MoviesInterface>();
-  const [errorInfo, setErrorInfo] = useState("");
+import { setMovieList, setErrorInfo, setMovie } from '../store/movie/movieActions';
+import { MovieState } from '../store/movie/movieTypes';
+import { AppState } from '../store';
+interface AppProps {
+  setMovieList: typeof setMovieList;
+  setErrorInfo: typeof setErrorInfo;
+  setMovie: typeof setMovie;
+  movieState: MovieState;
+}
 
+// tslint:disable-next-line: no-shadowed-variable
+const App = ({ movieState, setMovieList, setErrorInfo, setMovie }: AppProps) => {
   const fetchMovieList = async (name: string) => {
     try {
       const newList = await MoviesAPI.getMoviesByTitle(name);
-      setErrorInfo("");
+      setErrorInfo('');
       setMovieList(newList);
     } catch (err) {
       console.error({ err });
@@ -29,20 +36,27 @@ const App = () => {
         <SearchInput
           onSetMovie={setMovie}
           onSetMovieList={setMovieList}
-          movieList={movieList}
+          movieList={movieState.movieList}
           onFetchMovieList={fetchMovieList}
         />
-        <span className="app__error">{errorInfo}</span>
-        {movie ? (
+        <span className="app__error">{movieState.errorInfo}</span>
+        {movieState.movie ? (
           <div className="movie-details">
-            <MovieDetails movie={movie} />
+            <MovieDetails movie={movieState.movie} />
           </div>
         ) : (
-          ""
+          ''
         )}
       </header>
     </>
   );
 };
+const mapStateToProps = (state: AppState) => ({
+  movieState: state.movieState,
+});
 
-export default App;
+export default connect(mapStateToProps, {
+  setMovieList,
+  setErrorInfo,
+  setMovie,
+})(App);

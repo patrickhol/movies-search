@@ -1,10 +1,10 @@
-import React from "react";
-import Subtitle from "../atoms/Subtitle";
-import Genre from "../atoms/Genre";
-import Rating from "./Rating";
-import Title from "../atoms/Title";
-import Summary from "../atoms/Summary";
-import MoviesInterface from "../../interfaces/MoviesInterface.interface";
+import React from 'react';
+import Subtitle from '../atoms/Subtitle';
+import Genre from '../atoms/Genre';
+import Rating from './Rating';
+import Title from '../atoms/Title';
+import Summary from '../atoms/Summary';
+import MoviesInterface from '../../interfaces/moviesInterface.interface';
 import {
   TITLE_NOT_AVAILABLE,
   SUMMARY,
@@ -12,14 +12,14 @@ import {
   GENRE,
   GENRE_NOT_AVAILABLE,
   RATING,
-  RATING_NOT_AVAILABLE
-} from "../../constants/text.constants";
+  RATING_NOT_AVAILABLE,
+} from '../../constants/text.constants';
 
-interface IProps {
+interface MovieInfoProps {
   movie?: MoviesInterface;
 }
 
-const MovieInfo = ({ movie }: IProps) => {
+const MovieInfo = ({ movie }: MovieInfoProps) => {
   return (
     <div>
       <Title movieTitle={movie ? movie.title : TITLE_NOT_AVAILABLE} />

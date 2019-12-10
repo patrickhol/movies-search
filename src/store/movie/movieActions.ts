@@ -1,4 +1,4 @@
-import MoviesInterface from '../../interfaces/moviesInterface.interface';
+import MoviesInterface from '../../interfaces/MoviesInterface.interface';
 
 import { SET_MOVIE_LIST, SET_MOVIE, SET_ERROR } from '../movie/movieTypes';
 

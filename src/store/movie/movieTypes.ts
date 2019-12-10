@@ -1,4 +1,4 @@
-import moviesInterface from '../../interfaces/moviesInterface.interface';
+import moviesInterface from '../../interfaces/MoviesInterface.interface';
 
 export const SET_MOVIE_LIST = 'SET_MOVIE_LIST';
 export const SET_MOVIE = 'SET_MOVIE';

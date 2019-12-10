@@ -1,11 +1,5 @@
 # DEV
 
-## Use mock data in dev mode
-
-First install globally json-server [JSON Server](https://github.com/typicode/json-server)
-
-### `npm install -g json-server`
-
 Second install from the package.json all dependencies via npm or yarn [yarn installation guide](https://yarnpkg.com/lang/en/docs/install/)
 
 ### `npm i`

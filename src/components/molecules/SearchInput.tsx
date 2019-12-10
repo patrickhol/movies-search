@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MoviesInterface from '../../interfaces/moviesInterface.interface';
+import MoviesInterface from '../../interfaces/MoviesInterface.interface';
 
 interface Props {
   onFetchMovieList: (name: string) => void;

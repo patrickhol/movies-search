@@ -1,5 +1,5 @@
 import React from 'react';
-import MoviesInterface from '../../interfaces/moviesInterface.interface';
+import MoviesInterface from '../../interfaces/MoviesInterface.interface';
 import { DEFAULT_COVER, REGEXP_HTTP_FIND, HTTPS, DEFAULT_IMAGE_ALT } from '../../constants/global.constants';
 import { findAndReplace } from '../../utils/findAndReplace';
 
